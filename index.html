@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia da Mulher, Meu Amor!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fce4ec;
+            color: #880e4f;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin: 20px;
+        }
+        .carousel-container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    </style>
+</head>
+<body>
+
+    <h1>Feliz Dia da Mulher!❤️</h1>
+    <p>Hoje é um dia especial para celebrar a mulher incrível que você é. Sua força, beleza e amor tornam o mundo um lugar melhor. Eu Te amo meu amor! ❤️🍀</p>
+
+    <div class="carousel-container">
+        <button class="button prev" onclick="prevSlide()">&#10094;</button>
+        <div class="carousel">
+            <img src="imagens/img1.jpg" alt="Foto 1">
+            <img src="imagens/img2.jpg" alt="Foto 2">
+            <img src="imagens/img3.jpg" alt="Foto 3">
+				<img src="imagens/img4.jpg" alt="Foto 4">
+				<img src="imagens/img5.jpg" atl="Foto 5">
+        </div>
+        <button class="button next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".carousel img");
+        function showSlide(index) {
+            if (index >= slides.length) currentIndex = 0;
+            else if (index < 0) currentIndex = slides.length - 1;
+            else currentIndex = index;
+            document.querySelector(".carousel").style.transform = `translateX(${-currentIndex * 100}%)`;
+        }
+        function nextSlide() { showSlide(currentIndex + 1); }
+        function prevSlide() { showSlide(currentIndex - 1); }
+        setInterval(nextSlide, 3000); // Troca automática a cada 3 segundos
+    </script>
+
+</body>
+</html>
